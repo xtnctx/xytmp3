@@ -42,16 +42,14 @@ class YtMp3(QtCore.QThread):
 
 
     ydl_opts = {
-        'ignoreerrors': True,
-        'format': 'mp3/bestaudio/best',
+        'format': 'm4a/bestaudio/best',
         # ℹ️ See help(yt_dlp.postprocessor) for a list of available Postprocessors and their arguments
         'postprocessors': [{  # Extract audio using ffmpeg
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
         }],
         'logger': Logger(),
-        
-        'forcethumbnail': True
+
     }
     def __init__(self, url:Union[str, list], path:str, mode:str='preview', parent=None) -> None:
         # mode: preview | download
